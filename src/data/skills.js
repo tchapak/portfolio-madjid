@@ -1,0 +1,88 @@
+/* Données de compétences organisées comme les couches OSI
+   — clin d'œil fort à la formation SISR */
+export const SKILLS_CATEGORIES = [
+  {
+    id:       'systems',
+    title:    'Systèmes',
+    layer:    'Application',
+    layerNum: 'L7',
+    color:    '#3B82F6',
+    icon:     'Server',
+    skills: [
+      { name: 'Windows Server 2019 / 2022', level: 80 },
+      { name: 'Linux Debian / Ubuntu',       level: 75 },
+      { name: 'Active Directory & GPO',      level: 78 },
+      { name: 'PowerShell / Bash',            level: 70 },
+    ],
+  },
+  {
+    id:       'network',
+    title:    'Réseaux',
+    layer:    'Network',
+    layerNum: 'L3',
+    color:    '#06B6D4',
+    icon:     'Network',
+    skills: [
+      { name: 'Cisco IOS / Routage statique',  level: 82 },
+      { name: 'VLAN & Spanning Tree',          level: 78 },
+      { name: 'VPN IPsec / SSL',               level: 72 },
+      { name: 'DHCP & DNS',                    level: 85 },
+    ],
+  },
+  {
+    id:       'virtualisation',
+    title:    'Virtualisation',
+    layer:    'Infrastructure',
+    layerNum: 'L2',
+    color:    '#7C3AED',
+    icon:     'Layers',
+    skills: [
+      { name: 'VMware ESXi',      level: 70 },
+      { name: 'Proxmox VE',       level: 65 },
+      { name: 'Hyper-V',          level: 68 },
+      { name: 'Docker (notions)', level: 50 },
+    ],
+  },
+  {
+    id:       'security',
+    title:    'Sécurité',
+    layer:    'Transport',
+    layerNum: 'L4',
+    color:    '#F59E0B',
+    icon:     'Shield',
+    skills: [
+      { name: 'pfSense / Pare-feu',    level: 72 },
+      { name: 'Zabbix / Nagios',       level: 60 },
+      { name: 'Sauvegardes & PRA',     level: 75 },
+      { name: 'VLAN Segmentation',     level: 78 },
+    ],
+  },
+  {
+    id:       'services',
+    title:    'Services réseau',
+    layer:    'Session',
+    layerNum: 'L5',
+    color:    '#10B981',
+    icon:     'Globe',
+    skills: [
+      { name: 'DNS / DHCP avancés',      level: 80 },
+      { name: 'IIS / Apache / Nginx',    level: 65 },
+      { name: 'RADIUS / 802.1X',         level: 55 },
+      { name: 'VoIP (notions)',           level: 40 },
+    ],
+  },
+  {
+    id:       'tools',
+    title:    'Outils',
+    layer:    'Dev / Ops',
+    layerNum: 'L0',
+    color:    '#EC4899',
+    icon:     'Terminal',
+    skills: [
+      { name: 'Wireshark',               level: 78 },
+      { name: 'Packet Tracer / GNS3',    level: 80 },
+      { name: 'Git',                     level: 65 },
+      { name: 'VS Code',                 level: 88 },
+    ],
+  },
+]

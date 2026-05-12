@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python *)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(& \"C:\\\\Users\\\\safwa\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\python.exe\" \"C:\\\\Users\\\\safwa\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"tech portfolio sysadmin network engineer dark premium minimal\" --design-system -p \"Madjid ALLOUTI Portfolio\" -f markdown 2>&1)",
+      "PowerShell(& \"C:\\\\Windows\\\\py.exe\" --list 2>&1; & \"C:\\\\Windows\\\\py.exe\" \"C:\\\\Users\\\\safwa\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" --help 2>&1)",
+      "Bash(npm create *)",
+      "Bash(npx create-vite@latest . --template react)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npm list *)",
+      "Bash(grep -E \"exports\\\\.\\(ArrowRight|ChevronDown\\)$\")",
+      "Bash(grep -E \"exports\\\\.\\(Gamepad2|Dumbbell|Bike|Bicycle|Server|Globe|Layers|Shield|Database|Wrench|Network|Router|Box|Settings2|Code2|Terminal|Monitor\\)$\")",
+      "Bash(grep -E \"exports\\\\.\\(Gamepad|Gamepad2|Code2|Settings2|Cpu|Zap|Lock\\)$\")",
+      "Bash(grep -E \"exports\\\\.\\(X|Check|Clock|Calendar|FileText|ExternalLink|ArrowUpRight|CheckCircle2|ChevronRight|Filter\\)$\")",
+      "Bash(where python3 *)",
+      "Bash(where python *)",
+      "Bash(py --version)",
+      "PowerShell(py *)",
+      "Bash(taskkill /F /IM node.exe)",
+      "PowerShell(Stop-Process *)",
+      "Bash(grep -E \"^\\(framer-motion|lenis|lucide-react|react\\)$\")",
+      "Bash(node *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(npx vite *)",
+      "Bash(Start-Sleep -Seconds 5)",
+      "Bash(Get-Content \"C:\\\\Users\\\\safwa\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-safwa-Desktop-portfolio-madjid\\\\b051c26d-a19f-4c92-bfb9-7c587b8f6fc1\\\\tasks\\\\bbgt54jz1.output\")",
+      "Bash(npm uninstall *)",
+      "Bash(Test-Path *)"
+    ]
+  }
+}

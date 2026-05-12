@@ -1,0 +1,26 @@
+{
+  "name": "Madjid ALLOUTI — Portfolio SISR",
+  "short_name": "Madjid Portfolio",
+  "description": "Portfolio BTS SIO SISR — Futur Architecte Réseau. Épreuve E6.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090B",
+  "theme_color": "#3B82F6",
+  "lang": "fr",
+  "orientation": "any",
+  "categories": ["education", "portfolio"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

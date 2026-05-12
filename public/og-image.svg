@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Fond principal -->
+  <rect width="1200" height="630" fill="#09090B"/>
+
+  <!-- Dégradé radial central -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#3B82F6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#09090B" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0 L0 0 0 60" fill="none" stroke="#27272A" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+
+  <!-- Grille réseau subtile -->
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- Halo bleu central -->
+  <ellipse cx="600" cy="315" rx="420" ry="280" fill="url(#glow)"/>
+
+  <!-- Topologie réseau décorative (droite) -->
+  <g opacity="0.18">
+    <line x1="950" y1="315" x2="1050" y2="215" stroke="#3B82F6" stroke-width="1.5"/>
+    <line x1="950" y1="315" x2="1080" y2="315" stroke="#3B82F6" stroke-width="1.5"/>
+    <line x1="950" y1="315" x2="1050" y2="415" stroke="#3B82F6" stroke-width="1.5"/>
+    <line x1="950" y1="315" x2="860"  y2="215" stroke="#06B6D4" stroke-width="1"/>
+    <line x1="950" y1="315" x2="860"  y2="415" stroke="#06B6D4" stroke-width="1"/>
+    <circle cx="950" cy="315" r="12" fill="#3B82F6" opacity="0.9"/>
+    <circle cx="950" cy="315" r="22" fill="#3B82F6" opacity="0.08"/>
+    <circle cx="1050" cy="215" r="7" fill="#06B6D4" opacity="0.85"/>
+    <circle cx="1080" cy="315" r="7" fill="#06B6D4" opacity="0.85"/>
+    <circle cx="1050" cy="415" r="7" fill="#06B6D4" opacity="0.85"/>
+    <circle cx="860"  cy="215" r="5" fill="#3B82F6" opacity="0.6"/>
+    <circle cx="860"  cy="415" r="5" fill="#3B82F6" opacity="0.6"/>
+  </g>
+
+  <!-- Topologie réseau décorative (gauche, plus petite) -->
+  <g opacity="0.1">
+    <line x1="200" y1="315" x2="140" y2="240" stroke="#3B82F6" stroke-width="1"/>
+    <line x1="200" y1="315" x2="140" y2="390" stroke="#3B82F6" stroke-width="1"/>
+    <line x1="200" y1="315" x2="270" y2="265" stroke="#06B6D4" stroke-width="1"/>
+    <circle cx="200" cy="315" r="8"  fill="#3B82F6" opacity="0.8"/>
+    <circle cx="140" cy="240" r="5"  fill="#06B6D4" opacity="0.7"/>
+    <circle cx="140" cy="390" r="5"  fill="#06B6D4" opacity="0.7"/>
+    <circle cx="270" cy="265" r="4"  fill="#3B82F6" opacity="0.5"/>
+  </g>
+
+  <!-- Barre d'accent cyan haut -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#accentBar)"/>
+  <defs>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#3B82F6" stop-opacity="0"/>
+      <stop offset="35%"  stop-color="#3B82F6" stop-opacity="1"/>
+      <stop offset="65%"  stop-color="#06B6D4" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Label terminal -->
+  <text x="600" y="210"
+        font-family="'Courier New', monospace"
+        font-size="18"
+        fill="#06B6D4"
+        text-anchor="middle"
+        letter-spacing="4">
+    &gt; whoami
+  </text>
+
+  <!-- Nom principal -->
+  <text x="600" y="310"
+        font-family="'Segoe UI', system-ui, sans-serif"
+        font-size="82"
+        font-weight="700"
+        fill="#FAFAFA"
+        text-anchor="middle"
+        letter-spacing="-1">
+    Madjid ALLOUTI
+  </text>
+
+  <!-- Séparateur -->
+  <line x1="400" y1="340" x2="800" y2="340" stroke="#3B82F6" stroke-width="1" opacity="0.4"/>
+
+  <!-- Sous-titre -->
+  <text x="600" y="390"
+        font-family="'Segoe UI', system-ui, sans-serif"
+        font-size="28"
+        font-weight="400"
+        fill="#A1A1AA"
+        text-anchor="middle"
+        letter-spacing="1">
+    Futur Administrateur Systèmes &amp; Réseaux
+  </text>
+
+  <!-- Badge BTS SIO SISR -->
+  <rect x="476" y="420" width="248" height="44" rx="6"
+        fill="#3B82F6" fill-opacity="0.12"
+        stroke="#3B82F6" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="600" y="447"
+        font-family="'Courier New', monospace"
+        font-size="16"
+        fill="#3B82F6"
+        text-anchor="middle"
+        letter-spacing="3">
+    BTS SIO  ·  SISR  ·  2026
+  </text>
+
+  <!-- Badge portfolio (coin bas-droit) -->
+  <rect x="1060" y="566" width="120" height="34" rx="5"
+        fill="#111115" stroke="#3F3F46" stroke-width="1"/>
+  <text x="1120" y="587"
+        font-family="'Courier New', monospace"
+        font-size="13"
+        fill="#52525B"
+        text-anchor="middle"
+        letter-spacing="1">
+    portfolio
+  </text>
+</svg>

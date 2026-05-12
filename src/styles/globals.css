@@ -1,0 +1,416 @@
+/* ═══════════════════════════════════════════════════════
+   globals.css — Tailwind v4 + palette validée (Étape 1)
+   ═══════════════════════════════════════════════════════ */
+
+/* ── 1. Polices variables Fontsource ── */
+@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/dm-sans';
+@import '@fontsource-variable/jetbrains-mono';
+
+/* ── 2. Tailwind v4 (doit venir après les @import CSS) ── */
+@import "tailwindcss";
+
+/* ── 3. Thème Tailwind v4 — CSS-first config ── */
+@theme {
+  /* Fonds */
+  --color-base:    #09090B;
+  --color-surface: #111115;
+  --color-hover:   #1C1C22;
+
+  /* Bordures */
+  --color-border-subtle:  #27272A;
+  --color-border-visible: #3F3F46;
+
+  /* Accents */
+  --color-primary:      #3B82F6;
+  --color-primary-glow: #60A5FA;
+  --color-cyan:         #06B6D4;
+  --color-amber:        #F59E0B;
+
+  /* Texte (préfixe "text-" pour éviter le conflit avec l'utilitaire text-*) */
+  --color-text-primary: #FAFAFA;
+  --color-text-muted:   #A1A1AA;
+  --color-text-subtle:  #52525B;
+
+  /* Typographies — génère font-heading, font-body, font-mono */
+  --font-heading: 'Space Grotesk Variable', system-ui, sans-serif;
+  --font-body:    'DM Sans Variable',    system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono Variable', monospace;
+
+  /* Animations — génère animate-pulse-glow, animate-float */
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-float:      float 6s ease-in-out infinite;
+}
+
+/* ── 4. Keyframes ── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* ── 5. Reset minimal ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── 6. Sélection de texte ── */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: var(--color-text-primary);
+}
+
+/* ── 7. Scrollbar personnalisée ── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--color-base); }
+::-webkit-scrollbar-thumb  { background: var(--color-border-visible); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+
+/* ── 8. Classes utilitaires personnalisées ── */
+
+/* Gradient texte signature réseau */
+.text-gradient {
+  background: linear-gradient(135deg, #3B82F6, #06B6D4, #7C3AED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Conteneur centré */
+.container-main {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Bordure avec halo bleu */
+.border-glow {
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+/* Badge style terminal — identité SISR */
+.badge-terminal {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 0.25rem;
+  color: var(--color-cyan);
+  letter-spacing: 0.05em;
+}
+
+/* Point de statut réseau animé */
+.ping-dot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.ping-dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  box-shadow: 0 0 6px var(--color-cyan);
+  animation: ping-anim 2s ease-in-out infinite;
+}
+
+@keyframes ping-anim {
+  0%, 100% { opacity: 1;   box-shadow: 0 0 6px  var(--color-cyan); }
+  50%       { opacity: 0.5; box-shadow: 0 0 14px var(--color-cyan); }
+}
+
+/* ── 9. Grilles responsive (About + Skills) ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .about-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 5rem; }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 768px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+@media (min-width: 480px) {
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ── 10. Mode présentation oral E6 ── */
+
+/* Agrandissement des polices pour projection */
+.presentation-mode {
+  font-size: 110%;
+}
+.presentation-mode h1 { font-size: 1.2em; }
+.presentation-mode h2 { font-size: 1.15em; }
+.presentation-mode h3 { font-size: 1.1em; }
+.presentation-mode p  { font-size: 1.05em; line-height: 1.7; }
+
+/* Décale le contenu sous la barre de présentation (56px) */
+.presentation-mode main,
+.presentation-mode footer {
+  padding-top: 56px;
+}
+
+/* Focus visible renforcé en mode présentation */
+.presentation-mode :focus-visible {
+  outline: 2px solid #06B6D4;
+  outline-offset: 3px;
+}
+
+/* ── 11. Accessibilité — mouvement réduit ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── 10b. Focus visible — navigation clavier (WCAG AA) ── */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Les inputs gèrent leur propre focus via JavaScript */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+/* ── 10c. Lien "skip to main" — accessibilité clavier ── */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  text-decoration: none;
+}
+.skip-to-main:focus-visible {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.6rem 1.25rem;
+  background: var(--color-primary);
+  color: #FAFAFA;
+  z-index: 10000;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* ── 10d. Filtres projets — scroll horizontal mobile ── */
+.filter-scroll {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 4px;
+}
+.filter-scroll::-webkit-scrollbar { display: none; }
+
+/* ── 10e. Footer bas de page — responsive ── */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+@media (max-width: 767px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+/* ── 11. Contact grid (2 colonnes desktop) ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 5fr 7fr;
+    gap: 2.5rem;
+  }
+}
+
+/* ── Footer 3 colonnes ── */
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .footer-cols { grid-template-columns: 2fr 1fr 1fr; gap: 3rem; }
+}
+
+/* ── Options select — fond sombre ── */
+select option {
+  background: #111115;
+  color: #FAFAFA;
+}
+
+/* ── 11. Grilles — Section Veille ── */
+.veille-sources-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .veille-sources-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .veille-sources-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.veille-topics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 768px) {
+  .veille-topics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── 12. Timeline — layout vertical alternée ── */
+.timeline-track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Conteneur de la ligne verticale */
+.timeline-line-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 23px; /* centre du nœud 46px sur mobile */
+  width: 2px;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .timeline-line-wrapper {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Trait animé (scaleY piloté par Framer Motion) */
+.timeline-line-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(59, 130, 246, 0.65) 0%,
+    rgba(59, 130, 246, 0.15) 100%
+  );
+}
+
+/* Événement — mobile : 2 colonnes (nœud | carte) */
+.timeline-event {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 0 1.5rem;
+  align-items: start;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-node-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Desktop : 3 colonnes (carte | nœud | carte), alternance */
+@media (min-width: 768px) {
+  .timeline-event {
+    grid-template-columns: 1fr 46px 1fr;
+    gap: 0 2.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  /* Nœud toujours centré */
+  .timeline-node-col {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* Événements pairs → carte à gauche */
+  .timeline-event[data-left="true"] .timeline-card-col {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Événements impairs → carte à droite */
+  .timeline-event[data-left="false"] .timeline-card-col {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}
