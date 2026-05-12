@@ -3,7 +3,7 @@
 
 export const contactInfo = {
   /* ── Coordonnées ── */
-  email:        "madjid.allouti@exemple.com", // ← votre vrai email
+  email:        "madjidallouti70@gmail.com", // ← votre vrai email
   location:     "France",
   availability: "Disponible pour stage / alternance",
   resumeUrl:    "/CV-Madjid-ALLOUTI.pdf", // ← placer le PDF dans /public
@@ -15,20 +15,20 @@ export const contactInfo = {
   socials: [
     {
       name:   "GitHub",
-      url:    "https://github.com/ton-pseudo",
-      handle: "@ton-pseudo",
+      url:    "https://github.com/Tchapak",
+      handle: "@Tchapak",
       icon:   "github",
     },
     {
       name:   "LinkedIn",
       url:    "https://linkedin.com/in/ton-profil",
-      handle: "/in/ton-profil",
+      handle: "Madjid Allouti",
       icon:   "linkedin",
     },
     {
       name:   "Email",
-      url:    "mailto:madjid.allouti@exemple.com",
-      handle: "madjid.allouti@exemple.com",
+      url:    "mailto:madjidallouti70@gmail.com",
+      handle: "madjidallouti70@gmail.com",
       icon:   "Mail",
     },
   ],
