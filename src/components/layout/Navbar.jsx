@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const NAV_LINKS = [
-  { label: 'Accueil',     href: '#accueil'     },
-  { label: 'À propos',    href: '#apropos'      },
-  { label: 'Compétences', href: '#competences'  },
-  { label: 'Projets',     href: '#projets'      },
-  { label: 'Veille',      href: '#veille'       },
-  { label: 'Parcours',    href: '#parcours'     },
-  { label: 'Contact',     href: '#contact'      },
+  { label: 'Accueil',         href: '#accueil'         },
+  { label: 'À propos',        href: '#apropos'          },
+  { label: 'Compétences',     href: '#competences'      },
+  { label: 'Projets',         href: '#projets'          },
+  { label: 'Compétences E6',  href: '#competences-e6'   },
+  { label: 'Veille',          href: '#veille'           },
+  { label: 'Parcours',        href: '#parcours'         },
+  { label: 'Contact',         href: '#contact'          },
 ]
 
 export default function Navbar() {

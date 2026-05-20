@@ -1,108 +1,100 @@
-// POUR PERSONNALISER : modifiez les valeurs ci-dessous
-// (Claude Code peut aussi le faire pour vous plus tard)
+/**
+ * veille.js — Veille technologique
+ * 
+ * POUR PERSONNALISER : modifiez le thème, les sources et les
+ * sujets selon votre vraie veille. C'est un critère obligatoire
+ * de l'épreuve E6 — le jury va vous poser des questions !
+ * 
+ * Structure :
+ * - veilleTheme  : thème principal de la veille
+ * - veilleSources : liste des sources suivies (médias, sites,
+ *                   chaînes YouTube, communautés)
+ * - veilleTopics  : sujets récents étudiés (préparer 3 phrases
+ *                   clés par sujet pour l'oral)
+ */
 
-/* ── Thème principal de la veille ── */
 export const veilleTheme = {
-  mainTopic: "Cybersécurité & Infrastructures réseau",
-  subtitle:
-    "Ma veille se concentre sur l'évolution des menaces, les bonnes pratiques de sécurisation des infrastructures, et les nouvelles technologies réseau (SD-WAN, Zero Trust, IPv6).",
-  since: "2024-09", // format YYYY-MM
+  mainTopic: "Cybersécurité des infrastructures réseau",
+  subtitle: "Ma veille se concentre sur la sécurisation des systèmes d'information : nouvelles menaces, modèles de sécurité modernes (Zero Trust), réglementations européennes et bonnes pratiques de durcissement des infrastructures critiques.",
+  since: "2024-09"
 }
 
-/* ── Sources de veille ──
-   Icônes disponibles (Lucide) : Newspaper, Shield, AlertTriangle,
-   BookOpen, Users, Rss, Globe, Terminal, Monitor, Wifi …
-   Couleurs : n'importe quel hex */
 export const veilleSources = [
-  {
-    name:      "Le Monde Informatique",
-    type:      "Média spécialisé",
-    url:       "https://www.lemondeinformatique.fr",
-    frequency: "Quotidienne",
-    icon:      "Newspaper",
-    color:     "#3B82F6",
-  },
-  {
-    name:      "Zataz",
-    type:      "Cybersécurité",
-    url:       "https://www.zataz.com",
-    frequency: "Hebdomadaire",
-    icon:      "Shield",
-    color:     "#F59E0B",
-  },
-  {
-    name:      "CERT-FR",
-    type:      "Alertes officielles",
-    url:       "https://www.cert.ssi.gouv.fr",
+  { 
+    name: "CERT-FR",
+    type: "Alertes officielles ANSSI",
+    url: "https://www.cert.ssi.gouv.fr",
     frequency: "Dès publication",
-    icon:      "AlertTriangle",
-    color:     "#EF4444",
+    icon: "AlertTriangle"
   },
-  {
-    name:      "Cisco Learning Network",
-    type:      "Documentation technique",
-    url:       "https://learningnetwork.cisco.com",
-    frequency: "Mensuelle",
-    icon:      "BookOpen",
-    color:     "#06B6D4",
-  },
-  {
-    name:      "Reddit r/sysadmin",
-    type:      "Communauté",
-    url:       "https://reddit.com/r/sysadmin",
+  { 
+    name: "Le Monde Informatique",
+    type: "Média spécialisé B2B",
+    url: "https://www.lemondeinformatique.fr",
     frequency: "Quotidienne",
-    icon:      "Users",
-    color:     "#10B981",
+    icon: "Newspaper"
+  },
+  { 
+    name: "Zataz",
+    type: "Cybersécurité francophone",
+    url: "https://www.zataz.com",
+    frequency: "Hebdomadaire",
+    icon: "Shield"
+  },
+  { 
+    name: "Korben",
+    type: "Tech & sécurité accessible",
+    url: "https://korben.info",
+    frequency: "Plusieurs fois/semaine",
+    icon: "Rss"
   },
   {
-    name:      "Ars Technica",
-    type:      "Actualité tech",
-    url:       "https://arstechnica.com",
-    frequency: "Hebdomadaire",
-    icon:      "Rss",
-    color:     "#8B5CF6",
+    name: "Cocadmin (YouTube)",
+    type: "Chaîne FR administration & SISR",
+    url: "https://www.youtube.com/@cocadmin",
+    frequency: "Mensuelle",
+    icon: "Youtube"
   },
+  {
+    name: "Reddit r/sysadmin",
+    type: "Communauté internationale",
+    url: "https://www.reddit.com/r/sysadmin",
+    frequency: "Hebdomadaire",
+    icon: "Users"
+  }
 ]
 
-/* ── Sujets récents étudiés ──
-   category : "Sécurité" | "Réseau" | "Système" | "Cloud" …
-   date     : format YYYY-MM (affiché tel quel)
-   keywords : tableau de tags courts */
 export const veilleTopics = [
   {
-    id:       "topic-1",
-    title:    "Zero Trust Architecture",
+    id: "topic-1",
+    title: "Zero Trust Architecture",
     category: "Sécurité",
-    summary:
-      "Modèle de sécurité qui ne fait confiance à aucun élément par défaut, interne ou externe.",
-    date:     "2025-12",
-    keywords: ["ZTA", "Micro-segmentation", "IAM"],
+    summary: "Modèle de sécurité qui ne fait confiance à aucun élément par défaut, qu'il soit interne ou externe. Repose sur la micro-segmentation, le contrôle d'accès strict (IAM) et l'authentification multifacteur partout.",
+    date: "2026-04",
+    keywords: ["ZTA", "Micro-segmentation", "IAM"]
   },
   {
-    id:       "topic-2",
-    title:    "Migration IPv6 en entreprise",
-    category: "Réseau",
-    summary:
-      "Défis et bonnes pratiques de déploiement IPv6 dans les infrastructures existantes.",
-    date:     "2025-11",
-    keywords: ["IPv6", "Dual-stack", "SLAAC"],
-  },
-  {
-    id:       "topic-3",
-    title:    "Ransomware & sauvegardes immuables",
+    id: "topic-2",
+    title: "Ransomware & sauvegardes immuables",
     category: "Sécurité",
-    summary:
-      "Comment protéger ses sauvegardes face aux attaques par rançongiciel modernes.",
-    date:     "2025-10",
-    keywords: ["Ransomware", "Backup", "Immutable storage"],
+    summary: "Évolution des ransomwares vers la double extorsion (chiffrement + exfiltration). Le stockage immuable (objet lock, WORM, snapshots verrouillés) permet de protéger les sauvegardes des attaquants. La règle 3-2-1-1-0 devient le standard.",
+    date: "2026-03",
+    keywords: ["Ransomware", "Immutable backup", "3-2-1-1-0"]
   },
   {
-    id:       "topic-4",
-    title:    "SD-WAN et télétravail",
-    category: "Réseau",
-    summary:
-      "L'évolution des réseaux WAN avec les solutions software-defined pour connecter les sites distants.",
-    date:     "2025-09",
-    keywords: ["SD-WAN", "VPN", "Cloud"],
+    id: "topic-3",
+    title: "Directive NIS2 & obligations cyber",
+    category: "Réglementation",
+    summary: "Transposition européenne qui élargit considérablement le périmètre des entreprises soumises à des obligations de cybersécurité. Notification d'incidents sous 24h, sanctions financières renforcées, gouvernance imposée au top management.",
+    date: "2026-02",
+    keywords: ["NIS2", "ANSSI", "Compliance"]
   },
+  {
+    id: "topic-4",
+    title: "Active Directory & attaques modernes",
+    category: "Système",
+    summary: "Techniques d'attaque ciblant AD : Kerberoasting (extraction de hash), Pass-the-Hash, Golden Ticket. Outils utilisés (BloodHound, Mimikatz). Bonnes pratiques de hardening : tier model, comptes admin séparés, surveillance des privilèges.",
+    date: "2026-01",
+    keywords: ["AD", "Kerberoasting", "Hardening"]
+  }
 ]

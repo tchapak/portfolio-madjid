@@ -6,13 +6,14 @@ import { createContext, useContext, useState, useCallback, useMemo } from 'react
 
 /* IDs des sections dans l'ordre d'apparition dans le DOM */
 export const SECTIONS = [
-  { id: 'accueil',     label: 'Accueil'                },
-  { id: 'apropos',     label: 'À propos'               },
-  { id: 'competences', label: 'Compétences techniques' },
-  { id: 'projets',     label: 'Projets réalisés'       },
-  { id: 'veille',      label: 'Veille technologique'   },
-  { id: 'parcours',    label: 'Parcours'               },
-  { id: 'contact',     label: 'Contact'                },
+  { id: 'accueil',        label: 'Accueil'                },
+  { id: 'apropos',        label: 'À propos'               },
+  { id: 'competences',    label: 'Compétences techniques' },
+  { id: 'projets',        label: 'Projets réalisés'       },
+  { id: 'competences-e6', label: 'Fiches de compétences'  },
+  { id: 'veille',         label: 'Veille technologique'   },
+  { id: 'parcours',       label: 'Parcours'               },
+  { id: 'contact',        label: 'Contact'                },
 ]
 
 const PresentationContext = createContext(null)

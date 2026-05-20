@@ -27,7 +27,11 @@
       "Bash(Start-Sleep -Seconds 5)",
       "Bash(Get-Content \"C:\\\\Users\\\\safwa\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-safwa-Desktop-portfolio-madjid\\\\b051c26d-a19f-4c92-bfb9-7c587b8f6fc1\\\\tasks\\\\bbgt54jz1.output\")",
       "Bash(npm uninstall *)",
-      "Bash(Test-Path *)"
+      "Bash(Test-Path *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\safwa\\\\Desktop\\\\portfolio-madjid\" -Recurse -Directory)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)",
+      "PowerShell(Start-Sleep -Seconds 5; try { $r = Invoke-WebRequest -Uri \"http://localhost:5173\" -TimeoutSec 10 -UseBasicParsing; \"HTTP $\\($r.StatusCode\\)\" } catch { \"Error: $_\" })"
     ]
   }
 }

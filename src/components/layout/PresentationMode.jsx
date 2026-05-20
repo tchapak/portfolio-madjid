@@ -6,19 +6,20 @@ import { useEffect, useState, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   X, ChevronLeft, ChevronRight, Menu, Check,
-  Monitor, Home, User, Zap, FolderOpen, Radio, GitBranch, Mail,
+  Monitor, Home, User, Zap, FolderOpen, Radio, GitBranch, Mail, Award,
 } from 'lucide-react'
 import { usePresentationMode, SECTIONS } from '../../contexts/PresentationContext'
 
 /* ── Icônes par section ── */
 const ICONS = {
-  accueil:     Home,
-  apropos:     User,
-  competences: Zap,
-  projets:     FolderOpen,
-  veille:      Radio,
-  parcours:    GitBranch,
-  contact:     Mail,
+  accueil:          Home,
+  apropos:          User,
+  competences:      Zap,
+  projets:          FolderOpen,
+  'competences-e6': Award,
+  veille:           Radio,
+  parcours:         GitBranch,
+  contact:          Mail,
 }
 
 /* ── Liste des raccourcis affichés à l'entrée ── */

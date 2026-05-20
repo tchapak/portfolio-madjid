@@ -2,11 +2,12 @@
    App.jsx — Racine de l'application
 
    POUR MODIFIER TES CONTENUS, éditez les fichiers :
-     • src/data/projects.js   → projets
-     • src/data/skills.js     → compétences
-     • src/data/veille.js     → veille technologique
-     • src/data/timeline.js   → parcours / objectifs
-     • src/data/contact.js    → coordonnées & socials
+     • src/data/projects.js      → projets
+     • src/data/skills.js        → compétences techniques
+     • src/data/competences.js   → fiches de compétences E6
+     • src/data/veille.js        → veille technologique
+     • src/data/timeline.js      → parcours / objectifs
+     • src/data/contact.js       → coordonnées & socials
    ═══════════════════════════════════════════════════════ */
 import { useState, lazy, Suspense } from 'react'
 import { MotionConfig, AnimatePresence, motion } from 'framer-motion'
@@ -24,12 +25,13 @@ import CustomCursor from './components/layout/CustomCursor'
 import Hero         from './components/sections/Hero'
 
 /* ── Sections lazy : chunks JS séparés créés par Vite ── */
-const About    = lazy(() => import('./components/sections/About'))
-const Skills   = lazy(() => import('./components/sections/Skills'))
-const Projects = lazy(() => import('./components/sections/Projects'))
-const Veille   = lazy(() => import('./components/sections/Veille'))
-const Timeline = lazy(() => import('./components/sections/Timeline'))
-const Contact  = lazy(() => import('./components/sections/Contact'))
+const About       = lazy(() => import('./components/sections/About'))
+const Skills      = lazy(() => import('./components/sections/Skills'))
+const Projects    = lazy(() => import('./components/sections/Projects'))
+const Competences = lazy(() => import('./components/sections/Competences'))
+const Veille      = lazy(() => import('./components/sections/Veille'))
+const Timeline    = lazy(() => import('./components/sections/Timeline'))
+const Contact     = lazy(() => import('./components/sections/Contact'))
 
 function SectionSkeleton() {
   return (
@@ -70,6 +72,7 @@ function SiteContent() {
           <About />
           <Skills />
           <Projects />
+          <Competences />
           <Veille />
           <Timeline />
           <Contact />
