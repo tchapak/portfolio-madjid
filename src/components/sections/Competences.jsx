@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Eye, Download, Calendar, CheckCircle, Clock, Circle } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { COMPETENCES_DATA } from '../../data/competences'
-import CompetenceModal from '../ui/CompetenceModal'
 
 /* ── Palette des blocs ── */
 const BLOC_COLORS = {
@@ -118,7 +117,7 @@ function StatusBadge({ status }) {
 }
 
 /* ── Carte de compétence ── */
-function CompetenceCard({ fiche, onPreview, index }) {
+function CompetenceCard({ fiche, index }) {
   const cardRef   = useRef(null)
   const blocColor = BLOC_COLORS[fiche.bloc] ?? '#3B82F6'
   const visibleTechs = fiche.technologies.slice(0, 4)
@@ -304,10 +303,10 @@ function CompetenceCard({ fiche, onPreview, index }) {
 
           {/* Boutons Aperçu + Télécharger */}
           <div style={{ display: 'flex', gap: '0.4rem' }}>
-            {/* Aperçu */}
+            {/* Aperçu — ouvre le PDF dans un nouvel onglet */}
             <button
-              onClick={() => onPreview(fiche)}
-              aria-label={`Aperçu de la fiche ${fiche.title}`}
+              onClick={() => window.open(fiche.pdfFile, '_blank', 'noopener,noreferrer')}
+              aria-label={`Aperçu de la fiche ${fiche.title} (nouvel onglet)`}
               data-cursor="hover"
               style={{
                 display:      'flex',
@@ -343,6 +342,8 @@ function CompetenceCard({ fiche, onPreview, index }) {
             <a
               href={fiche.pdfFile}
               download
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={`Télécharger la fiche ${fiche.title}`}
               data-cursor="hover"
               style={{
@@ -431,7 +432,6 @@ function StatCard({ label, value, color, active }) {
    ════════════════════════════════════════════ */
 export default function Competences() {
   const [activeFilter,   setActiveFilter]   = useState('all')
-  const [selectedFiche,  setSelectedFiche]  = useState(null)
   const [headerRef,      headerVisible]     = useScrollReveal({ threshold: 0.25 })
   const [statsRef,       statsVisible]      = useScrollReveal({ threshold: 0.3 })
 
@@ -588,7 +588,6 @@ export default function Competences() {
                   key={fiche.id}
                   fiche={fiche}
                   index={i}
-                  onPreview={setSelectedFiche}
                 />
               ))}
             </AnimatePresence>
@@ -613,17 +612,6 @@ export default function Competences() {
         )}
 
       </div>
-
-      {/* ── Modale PDF ── */}
-      <AnimatePresence>
-        {selectedFiche && (
-          <CompetenceModal
-            key={selectedFiche.id}
-            fiche={selectedFiche}
-            onClose={() => setSelectedFiche(null)}
-          />
-        )}
-      </AnimatePresence>
     </section>
   )
 }
