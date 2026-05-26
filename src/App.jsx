@@ -24,6 +24,11 @@ import Footer       from './components/layout/Footer'
 import CustomCursor from './components/layout/CustomCursor'
 import Hero         from './components/sections/Hero'
 
+/* ── Overlays visuels "NOC" (CSS pur, par-dessus le contenu) ── */
+import ScanLine        from './components/ui/ScanLine'
+import NoiseOverlay    from './components/ui/NoiseOverlay'
+import SectionDivider  from './components/ui/SectionDivider'
+
 /* ── Sections lazy : chunks JS séparés créés par Vite ── */
 const About       = lazy(() => import('./components/sections/About'))
 const Skills      = lazy(() => import('./components/sections/Skills'))
@@ -49,6 +54,11 @@ function SiteContent() {
 
   return (
     <>
+      {/* ── Overlays d'ambiance "NOC" (pointer-events: none) ── */}
+      <div className="vignette-overlay" aria-hidden="true" />
+      <ScanLine />
+      <NoiseOverlay />
+
       {/* Curseur et navbar masqués en mode présentation */}
       <AnimatePresence>
         {!isPresentationMode && (
@@ -69,12 +79,19 @@ function SiteContent() {
         <Hero isVisible={true} />
 
         <Suspense fallback={<SectionSkeleton />}>
+          <SectionDivider text="> user.whoami() — status: OK" />
           <About />
+          <SectionDivider text="> skills.scan() — 28 modules loaded" />
           <Skills />
+          <SectionDivider text="> projects.list() — 4 entries found" />
           <Projects />
+          <SectionDivider text="> competences.validate() — 12/12 passed" />
           <Competences />
+          <SectionDivider text="> veille.fetch() — 4 topics synced" />
           <Veille />
+          <SectionDivider text="> timeline.render() — 8 events mapped" />
           <Timeline />
+          <SectionDivider text="> connection.open(port:443) — ready" />
           <Contact />
         </Suspense>
       </main>

@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Server, Network, Layers, Shield, Globe, Terminal } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import GlitchText from '../ui/GlitchText'
 import { SKILLS_CATEGORIES } from '../../data/skills'
 
 /* Map nom d'icône → composant Lucide */
@@ -163,15 +164,12 @@ export default function Skills() {
             &gt; skills --list
           </motion.span>
 
-          <motion.h2
+          <GlitchText
+            tag="h2"
             id="skills-title"
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            text="Compétences techniques"
             style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 700, color: '#FAFAFA', lineHeight: 1.1 }}
-          >
-            Compétences techniques
-          </motion.h2>
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}

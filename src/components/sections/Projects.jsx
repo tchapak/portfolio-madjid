@@ -3,13 +3,14 @@ import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Clock, ChevronRight } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import GlitchText from '../ui/GlitchText'
 import { PROJECTS, CATEGORY_COLORS } from '../../data/projects'
 import ProjectModal from '../ui/ProjectModal'
 
 /* ── Ping animé "UP" ── */
 function UpPing() {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }} aria-label="Projet en ligne">
+    <div className="glow-pulse" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }} aria-label="Projet en ligne">
       <div style={{ position: 'relative', width: 8, height: 8 }}>
         <motion.div
           animate={{ scale: [1, 2.4], opacity: [0.5, 0] }}
@@ -46,6 +47,7 @@ function ProjectCard({ project, onOpen }) {
   return (
     <div
       ref={cardRef}
+      className="project-card"
       onMouseMove={onTilt}
       onMouseLeave={resetTilt}
       onMouseEnter={e => {
@@ -95,7 +97,7 @@ function ProjectCard({ project, onOpen }) {
       </div>
 
       {/* Contenu texte */}
-      <div style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1 }}>
+      <div className="project-card-body" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1 }}>
         <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: '#FAFAFA', lineHeight: 1.3 }}>
           {project.title}
         </h3>
@@ -186,15 +188,12 @@ export default function Projects() {
             &gt; ls /projects
           </motion.span>
 
-          <motion.h2
+          <GlitchText
+            tag="h2"
             id="projects-title"
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            text="Projets réalisés"
             style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 700, color: '#FAFAFA', lineHeight: 1.1 }}
-          >
-            Projets réalisés
-          </motion.h2>
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}

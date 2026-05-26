@@ -5,6 +5,7 @@ import {
   Users, Rss, Activity, ExternalLink,
 } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import GlitchText from '../ui/GlitchText'
 import { veilleTheme, veilleSources, veilleTopics } from '../../data/veille'
 
 /* ── Map icône Lucide ── */
@@ -336,11 +337,10 @@ export default function Veille() {
             &gt; cat veille.log
           </motion.span>
 
-          <motion.h2
+          <GlitchText
+            tag="h2"
             id="veille-title"
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            text="Veille technologique"
             style={{
               fontFamily:  'var(--font-heading)',
               fontSize:    'clamp(2rem,4vw,3rem)',
@@ -348,9 +348,7 @@ export default function Veille() {
               color:       '#FAFAFA',
               lineHeight:  1.1,
             }}
-          >
-            Veille technologique
-          </motion.h2>
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}

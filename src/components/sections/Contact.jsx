@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, Mail, Download, User, Tag, MessageSquare, Send, ArrowRight } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import GlitchText from '../ui/GlitchText'
 import { contactInfo } from '../../data/contact'
 
 /* ── SVG icônes de marque ── */
@@ -835,15 +836,12 @@ export default function Contact() {
             &gt; establishing connection...
           </motion.span>
 
-          <motion.h2
+          <GlitchText
+            tag="h2"
             id="contact-title"
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            text="Prenons contact"
             style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 700, color: '#FAFAFA', lineHeight: 1.1 }}
-          >
-            Prenons contact
-          </motion.h2>
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}

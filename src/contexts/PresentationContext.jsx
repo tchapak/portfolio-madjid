@@ -8,9 +8,9 @@ import { createContext, useContext, useState, useCallback, useMemo } from 'react
 export const SECTIONS = [
   { id: 'accueil',        label: 'Accueil'                },
   { id: 'apropos',        label: 'À propos'               },
-  { id: 'competences',    label: 'Compétences techniques' },
+  { id: 'competences',    label: 'Skills'                 },
   { id: 'projets',        label: 'Projets réalisés'       },
-  { id: 'competences-e6', label: 'Fiches de compétences'  },
+  { id: 'competences-e6', label: 'E5'                     },
   { id: 'veille',         label: 'Veille technologique'   },
   { id: 'parcours',       label: 'Parcours'               },
   { id: 'contact',        label: 'Contact'                },

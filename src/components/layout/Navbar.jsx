@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 const NAV_LINKS = [
   { label: 'Accueil',         href: '#accueil'         },
   { label: 'À propos',        href: '#apropos'          },
-  { label: 'Compétences',     href: '#competences'      },
+  { label: 'Skills',          href: '#competences'      },
   { label: 'Projets',         href: '#projets'          },
-  { label: 'Compétences E6',  href: '#competences-e6'   },
+  { label: 'E5',              href: '#competences-e6'   },
   { label: 'Veille',          href: '#veille'           },
   { label: 'Parcours',        href: '#parcours'         },
   { label: 'Contact',         href: '#contact'          },
@@ -16,6 +16,7 @@ export default function Navbar() {
   const [scrolled,       setScrolled]       = useState(false)
   const [activeSection,  setActiveSection]  = useState('accueil')
   const [menuOpen,       setMenuOpen]       = useState(false)
+  const [cursorPos,      setCursorPos]      = useState({ left: 0, width: 0, opacity: 0 })
 
   /* ── Détection du scroll pour activer le blur ── */
   useEffect(() => {
@@ -115,7 +116,28 @@ export default function Navbar() {
           </a>
 
           {/* ── Liens desktop ── */}
-          <nav className="hidden md:flex items-center gap-1" role="navigation" aria-label="Navigation principale">
+          <nav
+            className="relative hidden md:flex items-center gap-6"
+            role="navigation"
+            aria-label="Navigation principale"
+            onMouseLeave={() => setCursorPos(prev => ({ ...prev, opacity: 0 }))}
+          >
+            {/* Curseur glissant (pill) — derrière le texte */}
+            <motion.div
+              aria-hidden="true"
+              animate={{ left: cursorPos.left, width: cursorPos.width, opacity: cursorPos.opacity }}
+              transition={{ type: 'spring', stiffness: 350, damping: 30, mass: 0.6 }}
+              style={{
+                position:     'absolute',
+                top:          0,
+                bottom:       0,
+                borderRadius: '9999px',
+                background:   'rgba(59, 130, 246, 0.15)',
+                border:       '1px solid rgba(59, 130, 246, 0.25)',
+                zIndex:       0,
+                pointerEvents:'none',
+              }}
+            />
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.href.slice(1)
               return (
@@ -123,11 +145,17 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }}
+                  onMouseEnter={(e) => setCursorPos({
+                    left:    e.currentTarget.offsetLeft,
+                    width:   e.currentTarget.offsetWidth,
+                    opacity: 1,
+                  })}
                   data-cursor="hover"
                   className="relative px-3 py-1.5 text-sm font-medium transition-colors duration-200 group"
                   style={{
                     fontFamily: 'var(--font-body)',
                     color: isActive ? '#3B82F6' : '#A1A1AA',
+                    zIndex: 1,
                   }}
                 >
                   {link.label}

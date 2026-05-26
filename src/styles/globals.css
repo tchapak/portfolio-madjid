@@ -414,3 +414,106 @@ select option {
     grid-row: 1;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   13. Effets visuels futuristes "NOC / monitoring"
+   Overlays CSS purs + glow — légers, compatibles tous
+   navigateurs, désactivés si prefers-reduced-motion.
+   ═══════════════════════════════════════════════════════ */
+
+/* ── 13a. Glow pulsé sur les éléments clés ── */
+.glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { filter: drop-shadow(0 0 8px  rgba(6, 182, 212, 0.3)); }
+  50%      { filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.6)); }
+}
+
+/* ── 13b. Scan line — balayage vertical continu ──
+   translateY (GPU) plutôt que top, pour rester à 60fps. */
+.scan-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 3px;
+  z-index: 40;
+  pointer-events: none;
+  background: rgba(6, 182, 212, 0.08);
+  box-shadow: 0 0 20px 4px rgba(6, 182, 212, 0.15);
+  will-change: transform;
+  animation: scanMove 5s linear infinite;
+}
+@keyframes scanMove {
+  0%   { transform: translateY(0);      opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translateY(100vh);  opacity: 0; }
+}
+
+/* ── 13c. Vignette — assombrissement des bords ── */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 39;
+  pointer-events: none;
+  box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.4);
+}
+
+/* ── 13d. Overlay de bruit (film grain) ── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.03;
+}
+.noise-overlay svg { width: 100%; height: 100%; display: block; }
+
+/* ── 13e. Accessibilité — coupe les effets animés ── */
+@media (prefers-reduced-motion: reduce) {
+  .scan-line,
+  .noise-overlay { display: none !important; }
+  .glow-pulse    { animation: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   14. Cartes projets — distortion "scan" au hover
+   Flash horizontal + léger skew du contenu. Effet subtil.
+   ═══════════════════════════════════════════════════════ */
+.project-card { position: relative; }
+
+/* Flash blanc qui traverse la carte de gauche à droite */
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.13) 50%,
+    transparent 65%
+  );
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.project-card:hover::after {
+  animation: cardScan 0.6s ease-out;
+}
+@keyframes cardScan {
+  0%   { transform: translateX(-100%); opacity: 1; }
+  100% { transform: translateX(100%);  opacity: 1; }
+}
+
+/* Léger skew du contenu (~0.1s) puis retour */
+.project-card:hover .project-card-body {
+  animation: cardSkew 0.2s ease-out;
+}
+@keyframes cardSkew {
+  0%   { transform: skewX(0deg);   }
+  45%  { transform: skewX(0.5deg); }
+  100% { transform: skewX(0deg);   }
+}

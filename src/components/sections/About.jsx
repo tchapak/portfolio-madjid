@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Gamepad, Dumbbell, Bike } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import GlitchText from '../ui/GlitchText'
 
 /* ── Placeholder SVG réseau (remplacé par une photo plus tard) ── */
 function NetworkAvatar() {
@@ -207,9 +208,12 @@ export default function About() {
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-cyan)', letterSpacing: '0.08em' }}>
                 &gt; whoami
               </span>
-              <h2 id="about-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 700, color: '#FAFAFA', lineHeight: 1.1 }}>
-                À propos
-              </h2>
+              <GlitchText
+                tag="h2"
+                id="about-title"
+                text="À propos"
+                style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 700, color: '#FAFAFA', lineHeight: 1.1 }}
+              />
             </motion.div>
 
             <motion.p {...fadeUp(0.3)} style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem,1.8vw,1.05rem)', color: 'var(--color-text-muted)', lineHeight: 1.8 }}>

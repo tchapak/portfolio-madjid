@@ -7,7 +7,7 @@ const TITLE      = 'Madjid ALLOUTI'
 const TYPEWRITER = 'Futur Administrateur Systèmes & Réseaux'
 
 /* ── Bouton avec effet magnétique ── */
-function MagneticButton({ children, href, 'aria-label': ariaLabel, 'data-cursor': cur, style }) {
+function MagneticButton({ children, href, 'aria-label': ariaLabel, 'data-cursor': cur, style, className }) {
   const ref = useRef(null)
 
   const onMove = (e) => {
@@ -29,6 +29,7 @@ function MagneticButton({ children, href, 'aria-label': ariaLabel, 'data-cursor'
       href={href}
       aria-label={ariaLabel}
       data-cursor={cur}
+      className={className}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{
@@ -202,6 +203,7 @@ export default function Hero({ isVisible }) {
             href="#projets"
             aria-label="Voir mes projets"
             data-cursor="cta"
+            className="glow-pulse"
             style={{
               color:      '#FAFAFA',
               background: 'linear-gradient(135deg, #3B82F6, #06B6D4)',
@@ -216,6 +218,7 @@ export default function Hero({ isVisible }) {
             href="#contact"
             aria-label="Me contacter"
             data-cursor="hover"
+            className="glow-pulse"
             style={{
               color:      'var(--color-text-primary)',
               background: 'transparent',

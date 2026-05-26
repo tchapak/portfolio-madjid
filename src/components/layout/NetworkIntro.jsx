@@ -110,6 +110,7 @@ function ParisNode({ controls }) {
   return (
     <g transform={`translate(${PARIS_X},${PARIS_Y})`}>
       <motion.g
+        className="glow-pulse"
         initial={{ scale: 0, opacity: 0 }}
         animate={controls}
         style={{ originX: '0px', originY: '0px' }}

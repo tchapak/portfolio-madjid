@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Eye, Download, Calendar, CheckCircle, Clock, Circle } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import GlitchText from '../ui/GlitchText'
 import { COMPETENCES_DATA } from '../../data/competences'
 
 /* ── Palette des blocs ── */
@@ -92,7 +93,9 @@ function StatusBadge({ status }) {
 
   const { label, color, bg, Icon } = config
   return (
-    <div style={{
+    <div
+      className={status === 'validee' ? 'glow-pulse' : undefined}
+      style={{
       display:      'inline-flex',
       alignItems:   'center',
       gap:          '0.3rem',
@@ -480,11 +483,10 @@ export default function Competences() {
             &gt; ls /competences-e6
           </motion.span>
 
-          <motion.h2
+          <GlitchText
+            tag="h2"
             id="competences-e6-title"
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            text="Fiches de compétences"
             style={{
               fontFamily:  "'Space Grotesk Variable', sans-serif",
               fontSize:    'clamp(2rem, 4vw, 3rem)',
@@ -493,9 +495,7 @@ export default function Competences() {
               lineHeight:  1.1,
               margin:      0,
             }}
-          >
-            Fiches de compétences
-          </motion.h2>
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
